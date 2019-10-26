@@ -9,6 +9,7 @@ namespace Atan
     {
         public Atan()
         {
+
             InitializeComponent();
         }
         private void Time_Button_Click(object sender, EventArgs e)
