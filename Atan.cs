@@ -26,14 +26,25 @@ namespace Atan
                 MessageBox.Show("Взаимоисключающая ошибка");
             }
         }
+        private void Button_LogicThread_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Button_LogicThread.Checked.Equals(true))
+            {
+                TheardWrite.Enabled = true;
+                TheardMessage.Enabled = true;
+            }
+            else
+            {
+                TheardWrite.Enabled = false;
+                TheardMessage.Enabled = false;
+            }
+        }
         private void Formula(UInt64 num)
         {
             Random rndx = new Random();
             Random rndy = new Random();
-
             double radians;
             double angle;
-
             for (UInt32 i = 0; i < num; i++)
             {
                 radians = Math.Atan2(rndx.NextDouble(), rndy.NextDouble());
@@ -62,7 +73,6 @@ namespace Atan
         {
             Random rndx = new Random();
             Random rndy = new Random();
-
             double radians;
             double angle;
             var start = DateTime.Now;
@@ -72,22 +82,7 @@ namespace Atan
                 angle = radians * (180 / Math.PI);
             }
             var timeEnd = DateTime.Now - start;
-
             return timeEnd.ToString();
-        }
-
-        private void Button_LogicThread_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Button_LogicThread.Checked.Equals(true))
-            {
-                TheardWrite.Enabled = true;
-                TheardMessage.Enabled = true;
-            }
-            else
-            {
-                TheardWrite.Enabled = false;
-                TheardMessage.Enabled = false;
-            }
         }
     }
 }
